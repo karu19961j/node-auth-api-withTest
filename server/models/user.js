@@ -58,7 +58,6 @@ UserSchema.statics.findByToken = function(token) {
     "tokens.access": "auth"
   });
 };
-
 UserSchema.methods.generateAuthToken = function() {
   let user = this;
   let access = "auth";
@@ -70,9 +69,8 @@ UserSchema.methods.generateAuthToken = function() {
     return token;
   });
 };
-
 UserSchema.statics.findByCredentials = function(email, password) {
-  var User = this;
+  let User = this;
   return User.findOne({ email }).then(user => {
     if (!user) {
       return Promise.reject();
